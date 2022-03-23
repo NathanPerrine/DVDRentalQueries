@@ -107,6 +107,7 @@ where country_id in (
 	)
 
 -- 9. List the actors who have been in more than 3 films but less than 6.
+-- Minimum movies is 14?
 select * from film
 select * from film_actor
 select * from actor
@@ -118,6 +119,7 @@ where actor_id in (
 	select count(film_id) as total
 	from film_actor 
 	group by actor_id
-	having count(film_id) between 3 and 6
+--	having count(film_id) between 3 and 6
+	having count(film_id) between 14 and 17
 	order by count(film_id)
 	)
