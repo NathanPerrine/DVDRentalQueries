@@ -20,9 +20,9 @@ where p.amount > 6.99
 select customer.customer_id, first_name, last_name
 from customer
 where customer.customer_id in (
-select customer_id 
-from payment p 
-where amount > 175
+	select customer_id 
+	from payment p 
+	where amount > 175
 )
 
 -- 4. List all customers that live in Argentina (use the city table)
@@ -81,7 +81,7 @@ where film_id = (
 select * from actor
 select * from film_actor
 
-select first_name, last_name 
+select first_name, last_name
 from actor
 where actor_id = (
 	select actor_id
@@ -116,10 +116,10 @@ select * from actor
 select first_name, last_name 
 from actor 
 where actor_id in (
-	select count(film_id) as total
+	select actor_id
 	from film_actor 
 	group by actor_id
 --	having count(film_id) between 3 and 6
-	having count(film_id) between 14 and 17
+	having count(film_id) between 23 and 26
 	order by count(film_id)
 	)
